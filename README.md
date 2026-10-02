@@ -4,8 +4,11 @@ Oral-microbiome × phenome analysis pipeline (HPP buccal shotgun). No DL — Lig
 
 ## Data
 
-```
-/net/mraid20/ifs/wisdom/segal_lab/genie/LabData/Data/10K/oral_microbiome/paper_dfs
+Set the input and output locations with environment variables:
+
+```bash
+export ORAL_MB_DATA_DIR=/path/to/paper_dfs   # default: data/paper_dfs
+export ORAL_MB_OUT_DIR=/path/to/runs         # default: runs
 ```
 
 Files: `{species,genus,family,phylum,pathways}.parquet`, `symptoms.parquet`,
@@ -50,14 +53,14 @@ pytest -q
 ```bash
 # Full pipeline, all levels
 python -m scripts.run_pipeline --mediate \
-  --out /net/mraid20/.../runs
+  --out ./runs
 
 # mGWAS prep
 python -m scripts.run_mgwas_prep --level species --bfile /path/HPP_geno
 
 # External replication
 python -m scripts.run_replication \
-  --discovery-dir /net/.../paper_dfs \
+  --discovery-dir /path/to/paper_dfs \
   --replication-dir /path/external/paper_dfs \
   --level species --out ./rep_out
 ```

@@ -4,7 +4,7 @@ Reads the CSVs written by scripts.run_pipeline / scripts.run_revision and
 rewrites only the figure files.
 
 Usage:
-    python -m scripts.regen_figures --run-dir /net/.../runs
+    python -m scripts.regen_figures --run-dir ./runs
     python -m scripts.regen_figures --run-dir ... --level species
 """
 from __future__ import annotations

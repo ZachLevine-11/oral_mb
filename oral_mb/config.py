@@ -1,13 +1,13 @@
 """Paths, constants, column groups."""
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
-DATA_DIR = Path(
-    "/net/mraid20/ifs/wisdom/segal_lab/genie/LabData/Data/10K/oral_microbiome/paper_dfs"
-)
-OUT_DIR = Path("/net/mraid20/ifs/wisdom/segal_lab/jasmine/zach/oral_mb")
+# Override with env vars; defaults are relative to the working directory.
+DATA_DIR = Path(os.environ.get("ORAL_MB_DATA_DIR", "data/paper_dfs"))
+OUT_DIR = Path(os.environ.get("ORAL_MB_OUT_DIR", "runs"))
 
 MICROBIOME_LEVELS: tuple[str, ...] = ("species", "genus", "family", "phylum", "pathways")
 
